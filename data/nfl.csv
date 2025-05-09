@@ -1,0 +1,130 @@
+Data,Entrada,Função,Fundamento,Investimento,Odd,Ganho,Resultado
+2022-09-08,"Davis ac. 3,5 rec",WR,Recepção,10,1.57,5.700000000000001,Green
+2022-09-08,"Allen ac. 24,5 passes completos",QB,Passes completos,10,2.0,10.0,Green
+2022-09-08,"Stafford ac. 0,5 INT",QB,Interceptação,10,1.83,8.3,Green
+2022-09-08,"Singletary ab. 12,5 runs",RB,Corridas,10,2.0,10.0,Green
+2022-09-08,"Rams +3,5",Time,Handicap,10,1.61,6.100000000000001,Red
+2022-09-11,CMC TD,RB,Touchdown,10,1.9,9.0,Green
+2022-09-11,"Thielen ac. 4,5 rec",WR,Recepção,10,2.0,10.0,Red
+2022-09-11,"Chargers -3,5",Time,Handicap,10,1.9,9.0,Green
+2022-09-11,Bengals e 49ers,Time,Vencedor,10,1.76,7.600000000000001,Red
+2022-09-11,"Ravens -6,5",Time,Handicap,10,1.9,9.0,Green
+2022-09-11,"Jaguars +3,5",Time,Handicap,10,1.9,9.0,Red
+2022-09-11,Evans TD,WR,Touchdown,10,2.0,10.0,Green
+2022-09-11,"Bucs -2,5 ",Time,Handicap,10,1.9,9.0,Green
+2022-09-11,"Brown ac. 33,5 jardas",WR,Jardas,10,1.9,9.0,Green
+2022-09-11,"Elliott ab. 46,5 jardas",RB,Jardas,10,1.9,9.0,Red
+2022-09-11,"Dak ac. 36,5 tentativas ",QB,Tentativas de passes,10,1.83,8.3,Red
+2022-09-12,"Geno ab. 211,5 jardas",QB,Jardas,10,1.9,9.0,Green
+2022-09-12,Broncos x Seahawks ab. 44 pts,Total,Under ,10,1.9,9.0,Green
+2022-09-12,"Williams ac. 58,5 jardas",RB,Jardas,10,1.8,8.0,Red
+2022-09-15,"Chargers + 4,5",Time,Handicap,10,1.83,8.3,Green
+2022-09-15,Chargers x Chiefs ab. 54 pts,Total,Under ,10,1.9,9.0,Green
+2022-09-15,"Kelce ac. 6,5 rec",TE,Recepção,10,1.66,6.599999999999998,Red
+2022-09-15,"Mahomes ac. 40,5 passes tentados",QB,Tentativas de passes,10,1.83,8.3,Red
+2022-09-15,Kelce e Ekeler TD,Múltipla,TD,10,2.9,19.0,Red
+2022-09-18,"Dolphins +3,5",Time,Handicap,10,1.86,8.600000000000001,Green
+2022-09-18,"Patriots x Steelers ab. 40,5 pts",Total,Under ,10,1.9,9.0,Green
+2022-09-18,"Rams, Bengals e Broncos",Multipla,Vencedor,10,1.83,8.3,Red
+2022-09-18,"Cardinals +5,5",Time,Handicap,10,1.9,9.0,Green
+2022-09-18,"Seahawks +9,5",Time,Handicap,10,1.83,8.3,Red
+2022-09-18,Chubb TD,RB,Touchdown,10,1.83,8.3,Green
+2022-09-18,"Bucs x Saints ab. 43,5 pts",Total,Under ,10,1.9,9.0,Green
+2022-09-18,Packers -10,Time,Handicap,10,1.9,9.0,Green
+2022-09-18,Bears x Packers ac. 42 pts,Total,Over,10,1.9,9.0,Red
+2022-09-18,Jones TD,RB,Touchdown,10,2.0,10.0,Green
+2022-09-18,"Fields ab. 194,5 jardas",QB,Jardas,10,1.9,9.0,Green
+2022-09-18,"Rodgers ab. 32,5 passes tentados",QB,Passes tentados,10,1.9,9.0,Green
+2022-09-19,"Bills -9,5",Time,Handicap,10,1.9,9.0,Green
+2022-09-19,Diggs TD,WR,Touchdown,10,1.9,9.0,Green
+2022-09-19,"Bills x Titans ac. 47,5 pts",Total,Over,10,1.9,9.0,Green
+2022-09-19,"Tannehill ab. 31,5 passes tentados",QB,Passes tentados,10,1.8,8.0,Green
+2022-09-19,"Eagles -2,5",Time,Handicap,10,1.83,8.3,Green
+2022-09-19,"Vikings x Eagles ac. 49,5 pts",Total,Over,10,1.9,9.0,Red
+2022-09-19,"Cousins ac. 23,5 passes completos",QB,Passes completos,10,1.8,8.0,Green
+2022-09-19,Jefferson TD,WR,Touchdown,10,1.83,8.3,Red
+2022-09-22,"Chubb ac. 86,5 jardas",RB,Jardas,10,2.05,10.5,Green
+2022-09-22,"Steelers +4,5",Time,Handicap,10,1.9,9.0,Red
+2022-09-22,Johnson TD,WR,Touchdown,10,3.6,26.0,Red
+2022-09-22,"Pickens ab. 2,5 rec",WR,Recepção,10,4.5,35.0,Red
+2022-09-22,"Trubisky ac. 0,5 int",QB,Interceptação,10,1.83,8.3,Red
+2022-09-25,"Ravens -2,5",Time,Handicap,10,1.83,8.3,Green
+2022-09-25,Vikings e Bengals,Dupla,Vencedor,10,1.91,9.099999999999998,Green
+2022-09-25,Saints -2,Time,Handicap,10,1.9,9.0,Red
+2022-09-25,Commanders +6,Time,Handicap,10,1.95,9.5,Red
+2022-09-25,Falcons +1,Time,Handicap,10,1.9,9.0,Green
+2022-09-25,Chiefs,Time,Vencedor,10,2.2,12.0,Red
+2022-09-25,"Pierce TD + ac. 60,5 jardas",RB,Touchdown,10,4.0,30.0,Green
+2022-09-25,Ekeler TD,RB,Touchdown,10,1.95,9.5,Red
+2022-09-25,Fournette TD,RB,Touchdown,10,1.95,9.5,Red
+2022-09-25,"49ers -1,5",Time,Handicap,10,1.9,9.0,Red
+2022-09-25,49ers x Broncos ab. 45 pts,Total,Under ,10,1.9,9.0,Green
+2022-09-25,"Wilson ac. 56,5 jardas",RB,Jardas,10,1.9,9.0,Green
+2022-09-25,"Garoppolo ab. 235,5 jardas",QB,Jardas,10,1.9,9.0,Green
+2022-09-25,Kittle TD,TE,Touchdown,10,2.87,18.700000000000003,Red
+2022-09-25,Wilson INT,QB,Interceptação,10,1.9,9.0,Red
+2022-09-26,Cowboys +7.5 & ab. 44.5,Dupla,Handicap e Over/Under ,10,1.8,8.0,Green
+2022-09-26,Daniel Jones ab. 200.5 jardas,QB,Jardas,10,1.9,9.0,Green
+2022-09-26,Barkley TD,RB,Touchdown,10,1.95,9.5,Green
+2022-09-26,Barkley ac. 78.5 jardas,RB,Jardas,10,1.9,9.0,Green
+2022-09-26,"Lamb ac. 59,5 jardas",WR,Jardas,10,1.95,9.5,Green
+2022-09-26,"Pollard ac. 2,5 recepções ",RB,Recepção ,10,1.66,6.599999999999998,Red
+2022-09-29,"Gesicki ab. 20,5 jardas",TE,Jardas,10,1.9,9.0,Red
+2022-09-29,"McPherson ac. 7,5 pts + Sanders ac. 6,5 pts",K,Pontos,10,4.2,32.0,Green
+2022-09-29,"Chase ac. 73,5 jardas",WR,Jardas,10,1.83,8.3,Green
+2022-09-29,"Mixon ac. 21,5 jardas recepção",RB,Jardas,10,1.9,9.0,Red
+2022-09-29,"Dolphins +10,5",Time,Handicap,10,1.86,8.600000000000001,Red
+2022-10-02,"Viking -3,5",Time,Handicap,10,1.9,9.0,Red
+2022-10-02,"Cousins ac. 21,5 passes completos",QB,Jardas,10,1.86,8.600000000000001,Green
+2022-10-02,Justin Jefferson TD,WR,Touchdown,10,1.95,9.5,Green
+2022-10-02,"Steelers -3,0",Time,Handicap,10,1.9,9.0,Red
+2022-10-02,"Packers -9,5",Time,Handicap,10,1.9,9.0,Red
+2022-10-02,"Barkley ac. 79,5 jardas",RB,Jardas,10,1.9,9.0,Green
+2022-10-02,Ekeler TD,RB,Touchdown,10,1.9,9.0,Green
+2022-10-02,"Pierce ac. 63,5 jardas",RB,Jardas,10,1.9,9.0,Green
+2022-10-02,Cooper TD,WR,Touchdown,10,2.6,16.0,Red
+2022-10-02,"Denver +2,5 AO VIVO",TIme,Handicap,10,2.15,11.5,Red
+2022-10-02,"Cardinals -2,5 AO VIVO",Time,Handicap,10,1.64,6.399999999999999,Green
+2022-10-02,"Ac. 40,5 + Chiefs +9,5",Combinada,Over/Handicap,10,1.83,8.3,Green
+2022-10-02,Fournette TD,RB,Touchdown,10,1.95,9.5,Green
+2022-10-02,Evans Marco 75 jardas,WR,Jardas,10,2.15,11.5,Green
+2022-10-02,"Mahomes ac. 25,5 passes completados",QB,Passes Completos,10,1.83,8.3,Red
+2022-10-02,"Succop ac. 6,5 pontos",K,Pontos,10,1.76,7.600000000000001,Green
+2022-10-03,Rams +2,Time,Handicap,10,1.9,9.0,Red
+2022-10-03,"Kupp ac. 8,5 recepções",WR,Recepções,10,2.05,10.5,Green
+2022-10-03,"Stafford ac. 0,5 INT",QB,Interceptação,10,1.83,8.3,Green
+2022-10-03,"Rams @ 49ers ab. de 39,5 pontos AO VIVO",Total,Under ,10,1.9,9.0,Green
+2022-10-06,Colts @ Broncos ab de 42 pontos,Total,Pontos,10,1.9,9.0,Green
+2022-10-06,"Broncos -3,5",Time,Handicap,10,1.9,9.0,Red
+2022-10-06,"McManus ac. 6,5 pontos",K,Pontos,10,1.86,8.600000000000001,Green
+2022-10-06,"Pittman Jr. ac. 5,5 rec",WR,Recepções,10,2.0,10.0,Red
+2022-10-06,"Boone ac. 30,5 jardas",RB,Jardas,10,1.9,9.0,Green
+2022-10-06,"Colts ab. de 18,5 pontos",Time,Pontos,10,1.86,8.600000000000001,Green
+2022-10-09,"Giants ac. 14,5 pts",Time,Over,10,1.86,8.600000000000001,Green
+2022-10-09,"Gano ac. 5,5 pts",K,Pontos,10,1.86,8.600000000000001,Green
+2022-10-09,Giants +8,Time,Handicap,10,1.9,9.0,Green
+2022-10-09,Jones + Barkley jardas,RB,Jardas,10,4.0,30.0,Red
+2022-10-09,Jones + Barkley TD,RB,Touchdown,10,4.2,32.0,Red
+2022-10-09,"Bucs ac. 29,5 pts",Time,Over,10,1.86,8.600000000000001,Red
+2022-10-09,"Pickens ac. 3,5 rec",WR,Recepções,10,2.1,11.0,Green
+2022-10-09,"Chargers x Browns ac. 46,5 pts",Total,Over,10,1.9,9.0,Green
+2022-10-09,Lions +3,Time,Handicap,10,1.86,8.600000000000001,Red
+2022-10-09,Dolphins -3,Time,Handicap,10,1.83,8.3,Red
+2022-10-09,"Eagles, 49ers e Rams",Tripla,Vencedor,10,2.8,18.0,Red
+2022-10-09,Copper TD,WR,Touchdown,10,3.25,22.5,Green
+2022-10-09,Jefferson TD,WR,Touchdown,10,3.6,26.0,Red
+2022-10-09,"Seahawks +3,5",Time,Handicap,10,2.0,10.0,Red
+2022-10-09,"Eagles -5,5",Time,Handicap,10,1.9,9.0,Red
+2022-10-09,Kupp TD,WR,Touchdown,10,4.0,30.0,Red
+2022-10-09,Kittle TD,TE,Touchdown,10,3.2,22.0,Red
+2022-10-09,Ravens -3,Time,Handicap,10,1.86,8.600000000000001,Red
+2022-10-09,"Lamar ac. 59,5 jardas terrestres",QB,Jardas,10,1.9,9.0,Red
+2022-10-09,"Hurst ac. 25,5 jardas",TE,Jardas,10,1.9,9.0,Green
+2022-10-09,Andrews TD,TE,Touchdown,10,2.1,11.0,Green
+2022-10-09,"Burrow ac. 0,5 INT",QB,Interceptação,10,1.9,9.0,Green
+2022-10-09,"Bengals x Raven ac. 47,5 pts",Total,Over,10,1.9,9.0,Red
+2022-10-10,"Chiefs -3,5",Time,Handicap,10,1.95,9.5,Red
+2022-10-10,"Carlson ac. 6,5 pts",K,Pontos,10,1.8,8.0,Green
+2022-10-10,"Carr ac. 0,5 Int",QB,Interceptação,10,1.86,8.600000000000001,Red
+2022-10-10,Adams TD,WR,Touchdown,10,2.4,14.0,Green
+2022-10-10,"Kelce ac. 75,5 jardas",TE,Jardas,10,1.9,9.0,Red
