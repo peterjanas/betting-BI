@@ -25,3 +25,25 @@ H2: Average betting odds before the match are moderately predictive of the final
 H3: A home team’s result in the last match is a significant short-term performance indicator.
 
 link to keggle: https://www.kaggle.com/datasets/ivanpv/premier-league-football-matches-20152019/data?select=Premier-League-2015-2019_TRAINING.csv
+
+
+
+adapted questions from mp3 to our exams project:
+
+1. Which machine learning methods did you choose to apply in the application and why?
+
+2. How accurate is your solution of prediction? Explain the meaning of the quality measures.
+
+3. Which are the most decisive factors for predicting the outcome of a football match? Why do they influence the result?
+
+4. What could be done for further improvement of the accuracy of the models?
+
+5. Which teams are at higher risk of losing matches based on historical performance or pre-match indicators?
+
+6. Are odds offered by bookmakers fair across different teams and matchups, or do they show bias based on team reputation?
+
+7. Do factors such as a team’s previous match result or away status influence their performance in the next match?
+
+8. Does a team's ranking from the previous season correlate with better match outcomes or higher win probability?
+
+9. Which were the challenges in the project development?
