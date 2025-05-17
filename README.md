@@ -46,14 +46,14 @@ We could also experiment with different numbers of clusters to find better group
 8. Can the odds be put into groups?
 
 yes with help of clustering can they be put into 4 clusters
-1. where the home team is favored
-2. where the away team is favored
-3. balanced teams
-4. outliers that doesn’t fit the other groups
+1 where the home team is favored
+2 where the away team is favored
+3 balanced teams
+4 outliers that doesn’t fit the other groups
 
 9. Which were the challenges in the project development?
 Yes, we encountered several challenges:
 while the data didn’t require much cleaning there where a few issues with it, such as 
-1. Team rankings 18 and 19 were completely missing, while rank 20 appeared approximately three times more often than other ranks. This suggests that the missing ranks may have been incorrectly grouped under rank 20.
-2. While match outcomes suggest that home teams are more likely to win (indicating a home advantage), the betting odds do not reflect this. it may be due to errors in the dataset or could be the result of betting behavior, introducing noise into the data.
+1 Team rankings 18 and 19 were completely missing, while rank 20 appeared approximately three times more often than other ranks. This suggests that the missing ranks may have been incorrectly grouped under rank 20.
+2 While match outcomes suggest that home teams are more likely to win (indicating a home advantage), the betting odds do not reflect this. it may be due to errors in the dataset or could be the result of betting behavior, introducing noise into the data.
 
