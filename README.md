@@ -43,5 +43,4 @@ Predicting the outcome of football matches is a complex task influenced by numer
 
 ---
 
-## Link to dataset on Kaggle
-"[Link to dataset on Kaggle](https://www.kaggle.com/datasets/ivanpv/premier-league-football-matches-20152019/data?select=Premier-League-2015-2019_TRAINING.csv)"
+[Link to dataset on Kaggle](https://www.kaggle.com/datasets/ivanpv/premier-league-football-matches-20152019/data?select=Premier-League-2015-2019_TRAINING.csv)
