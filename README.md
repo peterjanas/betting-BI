@@ -1,85 +1,30 @@
-[Link to Kaggle Dataset1](https://www.kaggle.com/datasets/ivanpv/premier-league-football-matches-20152019/data?select=Premier-League-2015-2019_TRAINING.csv)
----
-[Link to Kaggle Dataset2](https://www.kaggle.com/datasets/idoyo92/epl-stats-20192020?resource=download)
----
-[Link to Kaggle Dataset3](https://www.kaggle.com/datasets/sanjeetsinghnaik/premier-league-matches-20142020/data)
----
+BETTING DATA DASHBOARD
+Welcome to our football betting data analysis project, which focuses on predicting outcomes based on various metrics
 
-## Problem Statement
+Made by Peter, Chris, Masih, Umair and Tobias
 
-Football matches can be hard to predict, but maybe there are some patterns that can help.  
-We want to find out if things like home advantage, past rankings, or betting odds can tell us something useful about which team is more likely to win.
+Problem statement
+Predicting the outcome of football matches is inherently difficult due to the unpredictable nature of the game and the many variables that can influence results. This poses a challenge, especially as bookmakers set odds strategically to maximize their own advantage. To address this, we aim to apply machine learning techniques to analyze historical match data and uncover patterns or variables that may influence outcomes. By doing so, we hope to better understand the factors that affect match results and potentially improve prediction accuracy and potentially help individuals make more informed decisions when interpreting them.
 
----
+Project annotation
+We aim to explore how various factors influence the outcome of football matches, such as betting odds, previous rankings, and recent performance. The challenge lies in uncovering whether consistent patterns exist that can help predict match results more accurately. Our project will build a data-driven model using historical match data and betting information to identify key predictors of match outcomes. This solution could benefit sports analysts, betting companies, and fans by providing insights into game trends and improving forecasting accuracy.
 
-## 1. Which machine learning methods did you choose to apply in the application and why?
+Context and purpose
+Predicting the outcome of football matches is a complex task influenced by numerous variables, from team form and home advantage to odds provided by bookmakers. With the increasing availability of sports and betting data, this project aims to apply Business Intelligence (BI) techniques to discover meaningful patterns and relationships. The purpose is to assist decision-making in sports analytics, provide insights into match dynamics, and explore how external data (like odds) may reflect or predict actual performance.
 
-We made use of: **Linear Regression**, **Decision Tree**, and **K-Means** models.
+Research questions
+How do bookmaker odds correlate with actual match outcomes?
+Does a higher ranking from the previous season increase the likelihood of winning?
+Is there a significant "home advantage" when comparing results over multiple seasons?
+Do teams that won their last game have a higher probability of winning their current game?
+Can you cluster matches into different types?
+Hypotheses
+H1: Teams with lower average betting odds (favorites) are more likely to win.
 
-- **Linear Regression** – _Christian_
-- **Decision Tree** – _Tobias_
-- **K-Means**: Used to discover patterns in the betting odds and group similar matches.
+H2: A team ranked higher last season has a statistically significant chance of winning.
 
----
+H3: Home teams win more often than away teams, on average.
 
-## 2. How accurate is your solution of prediction? Explain the meaning of the quality measures.
+H4: Teams on a winning streak have a higher chance of winning the next match.
 
-- **Linear Regression** – _Christian_
-- **Decision Tree** – _Tobias_
-- **K-Means**:  
-  Silhouette Score: **0.470**, which indicates a **moderate clustering quality**.
-
----
-
-## 3. Which features have the most impact on the outcome of a match?
-
-- Odds had the highest impact on matches, followed by last season rankings.  
-- A team's last match result had surprisingly little impact on their next match.
-
----
-
-## 4. What could be done for further improvement of the accuracy of the models?
-
-- **Linear Regression** – _Christian_
-- **Decision Tree** – _Tobias_
-- **K-Means**:  
-  Including more features may help the model identify better patterns.  
-  We could also experiment with different numbers of clusters to find better groupings.
-
----
-
-## 5. Something found during data exploration – _Umair_
-_(Add your findings here)_
-
----
-
-## 6. Do home teams have an advantage over the away team? – _Christian_
-
-_(Add answer here)_
-
----
-
-## 7. add something you found tobias – _tobias_
-
-_(Add answer here)_
-
----
-
-## 8. Can the odds be put into groups?
-
-Yes, with the help of clustering, the odds can be grouped into four clusters:
-
-1. Where the home team is favored  
-2. Where the away team is favored  
-3. Balanced matches  
-4. Outliers that don’t fit into the other groups
-
----
-
-## 9. Which were the challenges in the project development?
-
-Yes, we encountered several challenges:
-
-1. **Missing rankings**: Team rankings 18 and 19 were completely missing, while rank 20 appeared approximately three times more often than other ranks. This suggests that the missing ranks may have been incorrectly grouped under rank 20.
-
-2. **Unexpected betting behavior**: While match outcomes suggest that home teams are more likely to win (indicating a home advantage), the betting odds do not reflect this. This may be due to errors in the dataset or the result of public betting behavior, introducing noise into the data.
+Link to dataset on Kaggle
