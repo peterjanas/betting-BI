@@ -1,5 +1,5 @@
 import streamlit as st
-from Components.data_clean import data_cleaning 
+from Components.naive_bayes_page import show_nb_model_page
 
 st.set_page_config(page_title="Betting BI", page_icon="⚽", layout="wide")
 
@@ -19,7 +19,6 @@ def show_homepage():
     st.write('3. Does the home team have an advantage over the away team?')
     st.write("4. Do teams that won their last game have a higher probability of winning their current game?")
     st.write("5. Can we accurately predict the outcome of a match using our data, and which machine learning model performs best for this task?")
-    st.markdown("[Link to research answers](https://docs.google.com/document/d/10Ix5eE6wj4bMqYIsDNtz1TjspD0voyOZx2McLeu0-5w/edit?tab=t.0)")
     st.subheader("Hypotheses")
     st.write("H1: Teams with lower average betting odds (favorites) are more likely to win.")
     st.write("H2: A team ranked higher last season has a statistically significant chance of winning.")
@@ -30,12 +29,12 @@ def show_homepage():
     
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.selectbox("Choose a page", ["Homepage", "DataCleaning"])
+    page = st.sidebar.selectbox("Choose a page", ["Homepage", "LoadNBModel"])
 
     if page == "Homepage":
         show_homepage()
-    elif page == "DataCleaning":
-        data_cleaning() 
+    elif page == "LoadNBModel":
+        show_nb_model_page() 
 
 
 if __name__ == "__main__":
