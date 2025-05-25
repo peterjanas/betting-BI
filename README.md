@@ -28,9 +28,9 @@ Predicting the outcome of football matches is a complex task influenced by numer
 
 - How do bookmaker odds correlate with actual match outcomes?  
 - Does a higher ranking from the previous season increase the likelihood of winning?  
-- Is there a significant "home advantage" when comparing results over multiple seasons?  
+- Does the home team have an advantage over the away team?  
 - Do teams that won their last game have a higher probability of winning their current game?  
-- Can you cluster matches into different types?
+- Can we accurately predict the outcome of a match using our data, and which machine learning model performs best for this task?
 
 ---
 
@@ -40,6 +40,7 @@ Predicting the outcome of football matches is a complex task influenced by numer
 - **H2**: A team ranked higher last season has a statistically significant chance of winning.  
 - **H3**: Home teams win more often than away teams, on average.  
 - **H4**: Teams on a winning streak have a higher chance of winning the next match.
+- **H5**: We believe match outcomes can be predicted with reasonable accuracy, and that a classification model such as a decision tree would be the most accurate.
 
 ---
 
