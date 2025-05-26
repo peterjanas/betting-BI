@@ -495,6 +495,91 @@ Our data shows the home team has a clear home advantage over the away team:
              
              """)
     
+    st.write("""
+             
+             # Reasearch question 4: 
+             ## Do teams that won their last game have a higher probability of winning their current game?
+             
+             """)
+    
+    home_result_analysis = df.groupby("last_home_result")["home_outcome_W"].mean().reset_index()
+    home_result_analysis.columns = ["Last Home Result", "Home Win Rate"]
+
+    # Apply readable labels
+    home_result_analysis["Last Home Result"] = home_result_analysis["Last Home Result"].map({
+       -1:"Lost Last Game",
+        0:"Drew Last Game",
+        1:"Won Last Game"
+})
+
+    st.write(home_result_analysis)
+    
+    away_result_analysis = df.groupby("last_away_result")["home_outcome_L"].mean().reset_index()
+    away_result_analysis.columns = ["Last Away Result", "Away Win Rate"]
+
+    # Apply readable labels
+    away_result_analysis["Last Away Result"] = away_result_analysis["Last Away Result"].map({
+     -1: "Lost Last Game",
+      0: "Drew Last Game",
+      1: "Won Last Game"
+})
+
+    st.write(away_result_analysis)
+    
+    
+    st.write("""
+             
+             
+             We grouped matches by the outcome of each team's previous game (win, draw/first game, or loss) and calculated the win rate for the current match:
+
+#### Home Teams
+
+| Last Home Result | Home Win Rate |
+|------------------|----------------|
+| Lost Last Game   | 41.0%          |
+| Drew Last Game   | 45.8%          |
+| Won Last Game    | 45.5%          |
+
+#### Away Teams
+
+| Last Away Result | Away Win Rate |
+|------------------|----------------|
+| Lost Last Game   | 27.2%          |
+| Drew Last Game   | 30.2%          |
+| Won Last Game    | 33.2%          |
+
+---
+
+### Interpretation
+
+- Home teams that lost their previous match had the lowest win rate (41.0%).
+- Home teams that drew or won their last match had similar win rates, around 45.5%–45.8%.
+
+- Away teams that lost last time had only a 27.2% win rate.
+- Away teams that won last time had the highest win rate at 33.2%.
+
+---
+
+### Conclusion
+
+For home teams, the result of the previous match does not seem to have a strong influence on the current game's outcome. Winning or drawing gives a slightly higher chance than losing, but the difference is marginal.
+
+For away teams, there is a more noticeable pattern. Teams that won their last game are more likely to win again, while those who lost are less likely to win the next match. This suggests that recent performance may have a stronger influence on away teams than home teams.
+
+             
+             
+            --------------------------------------------------------------------------- """)
+    
+    st.write("""
+             
+             # Reasearch question 5:
+             ## Can we accurately predict the outcome of a match using our data, and which machine learning model performs best for this task?
+             
+            ---------------------------------------------------------------------------------------------------------- """)
+    
+    
+    
+    
     def label_outcome(row):
         if row['home_outcome_W'] == 1:
             return 'Home Win'
@@ -536,7 +621,9 @@ This market-driven skew could explain why the odds don't align with the actual w
 Either way, this discrepancy may indicate noise or bias in the data that could affect model performance.
 
              
-             """)
+           """)
+    
+    
     
     def favored_outcome(row):
         odds = {
