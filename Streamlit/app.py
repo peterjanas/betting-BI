@@ -38,21 +38,21 @@ def show_homepage():
 def main():
     st.sidebar.title("Navigation")
     
-    page = st.sidebar.selectbox("Choose a page", ["Homepage", "OldDataset","CleanLabelDataset", "CleanOneHotDataset", "LoadEDA", "LoadNBModel","randomforestmodel"])
+    page = st.sidebar.selectbox("Choose a page", ["Homepage", "Original-Dataset","Label-Dataset", "One-Hot-Dataset", "EDA", "NB-Model","Random-Forest-Model"])
 
     if page == "Homepage":
         show_homepage()
-    elif page == "OldDataset":
+    elif page == "Original-Dataset":
         load_old_data()
-    elif page == "CleanLabelDataset":
+    elif page == "Label-Dataset":
         load_cleaned_label_data()
-    elif page == "CleanOneHotDataset":
+    elif page == "One-Hot-Dataset":
         load_cleaned_onehot_data()
-    elif page == "LoadEDA":
+    elif page == "EDA":
         load_eda()
-    elif page == "LoadNBModel":
+    elif page == "NB-Model":
         show_nb_model_page() 
-    elif page == "randomforestmodel":
+    elif page == "Random-Forest-Model":
         show_randomforest_model_page()
         
                        

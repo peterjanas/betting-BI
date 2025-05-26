@@ -10,10 +10,10 @@ def load_model():
 
 
 def show_randomforest_model_page():
-    st.title("randomforestmodel")
+    st.title("Random Forest Classifier")
     model = load_model()
 
-    st.write("enter relevant data to to predict match outcome")
+    st.write("Enter the relevant features to predict match outcome:")
 
     ranking_diff = st.number_input("ranking_diff")
     avg_odd_home_win = st.number_input("avg_odd_home_win")
