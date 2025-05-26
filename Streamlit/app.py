@@ -1,6 +1,6 @@
 import streamlit as st
 from Components.naive_bayes_page import show_nb_model_page
-
+from Components.random_forest_page import show_randomforest_model_page
 st.set_page_config(page_title="Betting BI", page_icon="⚽", layout="wide")
 
 def show_homepage():
@@ -29,13 +29,14 @@ def show_homepage():
     
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.selectbox("Choose a page", ["Homepage", "LoadNBModel"])
+    page = st.sidebar.selectbox("Choose a page", ["Homepage", "LoadNBModel","randomforestmodel"])
 
     if page == "Homepage":
         show_homepage()
     elif page == "LoadNBModel":
         show_nb_model_page() 
-
+    elif page == "randomforestmodel":
+        show_randomforest_model_page()
 
 if __name__ == "__main__":
     main()
