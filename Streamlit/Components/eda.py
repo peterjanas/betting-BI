@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.decomposition import PCA
 import io
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+import joblib
 
 def load_eda():
     st.title("Exploratory Data Analysis")
@@ -574,9 +578,190 @@ For away teams, there is a more noticeable pattern. Teams that won their last ga
              
              # Reasearch question 5:
              ## Can we accurately predict the outcome of a match using our data, and which machine learning model performs best for this task?
-             
+             #### setup to ensure they use the same feature as they where trained on
             ---------------------------------------------------------------------------------------------------------- """)
     
+    def add_engineered_features(df):
+        df = df.copy()
+
+        if "home_ranking" in df.columns and "away_ranking" in df.columns:
+            df["ranking_diff"] = abs(df["home_ranking"] - df["away_ranking"])
+
+        if all(col in df.columns for col in [
+            "home_season_wins_so_far", "home_season_losses_so_far",
+            "away_season_wins_so_far", "away_season_losses_so_far"
+    ]):
+          df["form_diff"] = abs(
+              (df["home_season_wins_so_far"] - df["home_season_losses_so_far"]) -
+              (df["away_season_wins_so_far"] - df["away_season_losses_so_far"])
+        )
+
+        if "avg_odd_home_win" in df.columns and "avg_odd_away_win" in df.columns:
+            df["odds_ratio"] = df["avg_odd_home_win"] / df["avg_odd_away_win"]
+
+        if all(col in df.columns for col in [
+            "avg_odd_home_win", "avg_odd_away_win", "avg_odd_draw"
+    ]):
+          df["draw_margin"] = df["avg_odd_draw"] - (
+              (df["avg_odd_home_win"] + df["avg_odd_away_win"]) / 2
+        )
+
+        if "ranking_diff" in df.columns and "form_diff" in df.columns:
+            df["is_balanced_match"] = (
+                (df["ranking_diff"].abs() <= 2) &
+                (df["form_diff"].abs() <= 2)
+        )   .astype(int)
+
+        return df
+
+    df_label = add_engineered_features(pd.read_csv("../data/cleaned-premier-label.csv"))
+    df_onehot = add_engineered_features(pd.read_csv("../data/cleaned-premier-onehot.csv"))
+
+    rf_features = [
+        'ranking_diff','avg_odd_home_win','avg_odd_draw','avg_odd_away_win',
+        'home_season_wins_so_far','home_season_draws_so_far','home_season_losses_so_far',
+        'away_season_wins_so_far','away_season_draws_so_far'
+]
+
+    X_rf = df_label[rf_features]
+    y_rf = df_label["home_outcome"]
+
+    X_rf_train, X_rf_test, y_rf_train, y_rf_test = train_test_split(
+        X_rf, y_rf, test_size=0.2, random_state=42
+)
+
+    rf2_features = [
+        "avg_odd_home_win", "avg_odd_draw", "avg_odd_away_win",
+        "home_ranking", "away_ranking",
+        "home_season_wins_so_far", "home_season_draws_so_far", "home_season_losses_so_far",
+        "away_season_wins_so_far", "away_season_draws_so_far", "away_season_losses_so_far",
+        "form_diff", "ranking_diff", "odds_ratio", "draw_margin"
+]
+
+    X_rf2 = df_label[rf2_features]
+    y_rf2 = df_label["home_outcome"]
+
+    scaler_rf2 = StandardScaler()
+    X_rf2_scaled = scaler_rf2.fit_transform(X_rf2)
+
+    X_rf2_train, X_rf2_test, y_rf2_train, y_rf2_test = train_test_split(
+        X_rf2_scaled, y_rf2, test_size=0.2, stratify=y_rf2, random_state=42
+)
+
+    logreg_features = [
+        "avg_odd_home_win", "avg_odd_draw", "home_ranking",
+        "home_season_draws_so_far", "home_season_losses_so_far",
+        "away_season_wins_so_far", "form_diff", "ranking_diff", "odds_ratio", "is_balanced_match"
+]
+
+    X_logreg = df_label[logreg_features]
+    y_logreg = df_label["home_outcome"]
+
+    scaler = StandardScaler()
+    X_logreg_scaled = scaler.fit_transform(X_logreg)
+
+    X_logreg_train, X_logreg_test, y_logreg_train, y_logreg_test = train_test_split(
+        X_logreg_scaled, y_logreg, test_size=0.2, random_state=42, stratify=y_logreg
+)
+
+    nb_features = [
+        'home_outcome', 'avg_odd_home_win', 'avg_odd_draw', 'avg_odd_away_win',
+        'home_ranking', 'away_ranking',
+        'home_season_wins_so_far', 'home_season_draws_so_far', 'home_season_losses_so_far'
+]
+
+    df_nb = pd.read_csv('../data/cleaned-premier-label.csv')[nb_features]
+
+    array = df_nb.values
+    X_nb = array[:, 1:]
+    y_nb = array[:, 0]
+
+    X_nb_train, X_nb_test, y_nb_train, y_nb_test = train_test_split(
+        X_nb, y_nb, test_size=0.2, random_state=7
+)
+
+    logreg = joblib.load("../Models/logical-reg-model.pkl")
+    rf = joblib.load("../Models/myrandomforest.pkl")
+    nb = joblib.load("../Models/naive-bayes-model.pkl")
+    rf2 = joblib.load("../Models/random-forest2-model.pkl")
+
+    def evaluate_model(model, name, X_test, y_test):
+        y_pred = model.predict(X_test)
+        st.write(f"\n{name} Results:")
+        st.write("Accuracy:", accuracy_score(y_test, y_pred))
+        st.write("Classification Report:")
+        st.write(classification_report(y_test, y_pred, target_names=["Loss", "Draw", "Win"]))
+        st.write("Confusion Matrix:")
+        st.write(confusion_matrix(y_test, y_pred))
+
+    evaluate_model(rf, "Random Forest (Model 1)", X_rf_test, y_rf_test)
+    evaluate_model(rf2, "Random Forest (Model 2)", X_rf2_test, y_rf2_test)
+    evaluate_model(logreg, "Logistic Regression", X_logreg_test, y_logreg_test)
+    evaluate_model(nb, "Naive Bayes", X_nb_test, y_nb_test)
+
+
+    st.write("""
+             
+             ## Research Question 5
+
+**Can we accurately predict the outcome of a match using our data, and which machine learning model performs best for this task?**
+
+---
+
+## Model Performance Summary
+
+
+| Model                   | Accuracy | Best at Predicting | Worst at Predicting       |
+|------------------------|----------|--------------------|----------------------------|
+| **Logistic Regression**   | 0.508    | Wins (Recall: 0.82) | Draws (Recall: 0.05)        |
+| **Random Forest (Model 1)** | 0.484    | Wins (Recall: 0.69) | Draws (Recall: 0.17)        |
+| **Naive Bayes**            | 0.468    | Wins (Recall: 0.72) | Draws (Recall: 0.07)        |
+| **Random Forest (Model 2)**| 0.516 | Wins (Recall: 0.76) | Draws (Recall: 0.20)        |
+
+- All models struggle to predict draws, with extremely low recall and F1-scores across the board.
+- All models perform much better at predicting wins, likely due to class imbalance and strong patterns in odds and form-related features.
+- Random Forest Model 2 slightly outperforms the others**, but still hovers just above 51% accuracy.
+
+
+---
+
+### Can we accurately predict match outcomes?
+
+**Not reliably.**  
+Despite using odds, rankings, and performance data, models reach only modest accuracy (~48–51%) and perform poorly on draws.
+
+This indicates that match outcomes may be influenced by factors not captured in the data (e.g., injuries, luck, referee decisions, etc.), and that available features alone are insufficient for strong predictive accuracy.
+
+---
+
+### Odds Data Bias
+
+We observed that:
+
+Bookmakers almost never favor the home team, even though home teams win more often.
+
+This has important implications:
+
+- Odds are maybe biased by market behavior rather than match reality.
+- This can mislead models into learning patterns shaped by gambler psychology rather than actual game dynamics.
+- It may explain why predictions lean heavily toward wins and away from draws or losses.
+
+---
+
+## Final Conclusion
+
+**Can we accurately predict the outcome of a match using our data?**  
+**No, not with high reliability.**
+While some structure is captured especially for wins, overall performance is limited.   
+Models show limited accuracy and struggle especially with draw predictions, indicating that football outcomes are difficult to model with our features.
+
+**Which machine learning model performs best?**
+The differences are small and all models suffer from the same core issues suggesting that data limitations, not model choice, are the bottleneck.
+
+Random Forest (Model 2) performs slightly better, reaching 51.6% accuracy and improving draw recall to 0.20.  
+             
+             
+            -------------------------------------------------------------------------------------------------------------- """)
     
     
     
