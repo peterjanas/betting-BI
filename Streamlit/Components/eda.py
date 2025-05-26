@@ -755,7 +755,7 @@ This has important implications:
 While some structure is captured especially for wins, overall performance is limited.   
 Models show limited accuracy and struggle especially with draw predictions, indicating that football outcomes are difficult to model with our features.
 
-**Which machine learning model performs best?**
+**Which machine learning model performs best?
 The differences are small and all models suffer from the same core issues suggesting that data limitations, not model choice, are the bottleneck.
 
 Random Forest (Model 2) performs slightly better, reaching 51.6% accuracy and improving draw recall to 0.20.  
