@@ -282,7 +282,93 @@ The boxplots show the distribution of average betting odds for home wins, draws,
 - These **outliers** may be worth further investigation, as they could indicate surprising or unusual match outcomes.
 
              
+            -------------------------------------------------------------------------------------------------------- """)
+    
+    
+    #use one-hot encoding for categorical variables
+    df2 = pd.read_csv('../data/cleaned-premier-onehot.csv')
+    
+    def label_outcome(row):
+        if row['home_outcome_W'] == 1:
+            return 'Home Win'
+        elif row['home_outcome_D'] == 1:
+            return 'Draw'
+        else:
+            return 'Away Win'
+
+    df2['actual_result'] = df2.apply(label_outcome, axis=1)
+
+    odds_by_outcome = df2.groupby('actual_result')[['avg_odd_home_win', 'avg_odd_draw', 'avg_odd_away_win']].mean()
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    odds_by_outcome.plot(kind='bar', ax=ax)
+
+    ax.set_title("Average Bookmaker Odds by Actual Match Outcome")
+    ax.set_ylabel("Average Odds")
+    ax.set_xlabel("Actual Match Outcome")
+    ax.legend(["Home Win Odds", "Draw Odds", "Away Win Odds"])
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
+
+    plt.tight_layout()
+    st.pyplot(fig)
+    
+    st.write("Shows the average bookmaker odds for each possible outcome, in matches that ended in a home win, draw, or away win.")
+    
+    st.write("""
+             
+             ### Odds vs Reality
+
+This again highlights a strange pattern in our dataset:  
+Even though home teams, on average, are more likely to win, this is not reflected in the odds data.
+
+The fact that bookmakers almost never favor the home team suggests there may be an underlying issue or bias in the dataset.
+
+It could also reflect how gamblers tend to bet, if the betting market disproportionately favors away teams or draws, bookmakers might adjust odds accordingly to balance their risk.  
+This market-driven skew could explain why the odds don't align with the actual win rates of home teams.
+
+Either way, this discrepancy may indicate noise or bias in the data that could affect model performance.
+
+             
+           """)
+    
+    
+    
+    def favored_outcome(row):
+        odds = {
+            'Home Win': row['avg_odd_home_win'],
+            'Draw': row['avg_odd_draw'],
+            'Away Win': row['avg_odd_away_win']
+    }
+        return min(odds, key=odds.get)
+
+    df2['bookmaker_favored'] = df2.apply(favored_outcome, axis=1)
+
+    favored_counts = df2['bookmaker_favored'].value_counts(normalize=True) * 100
+    st.write("How often each outcome was favored by the odds (lowest odds):")
+    st.write(favored_counts.round(2))
+    
+    actual_outcomes = df2[['home_outcome_W', 'home_outcome_D', 'home_outcome_L']].sum()
+    actual_outcomes.index = ['Home Win', 'Draw', 'Away Win']
+    actual_outcomes_percent = actual_outcomes / actual_outcomes.sum() * 100
+
+    st.write("\nActual outcome distribution:")
+    st.write(actual_outcomes_percent.round(2))
+    
+    df2['ranking_diff'] = df2['away_ranking'] - df2['home_ranking']
+
+    avg_diff_when_away_favored = df2[df2['bookmaker_favored'] == 'Away Win']['ranking_diff'].mean()
+    st.write(f"\nAverage ranking_diff when Away Win is favored: {avg_diff_when_away_favored:.2f}")
+    
+    st.write("""
+             
+             Bookmakers systematically favor away teams
+Despite home teams winning more often, bookmakers set away win odds lower in 59% of all matches, while home teams are only favored in 2%.
+
+even though home teams wins 13.32% more often
+             
              """)
+    
+    
     
     st.write("""
              
@@ -764,86 +850,6 @@ Random Forest (Model 2) performs slightly better, reaching 51.6% accuracy and im
             -------------------------------------------------------------------------------------------------------------- """)
     
     
-    
-    def label_outcome(row):
-        if row['home_outcome_W'] == 1:
-            return 'Home Win'
-        elif row['home_outcome_D'] == 1:
-            return 'Draw'
-        else:
-            return 'Away Win'
-
-    df['actual_result'] = df.apply(label_outcome, axis=1)
-
-    odds_by_outcome = df.groupby('actual_result')[['avg_odd_home_win', 'avg_odd_draw', 'avg_odd_away_win']].mean()
-
-    fig, ax = plt.subplots(figsize=(10, 6))
-    odds_by_outcome.plot(kind='bar', ax=ax)
-
-    ax.set_title("Average Bookmaker Odds by Actual Match Outcome")
-    ax.set_ylabel("Average Odds")
-    ax.set_xlabel("Actual Match Outcome")
-    ax.legend(["Home Win Odds", "Draw Odds", "Away Win Odds"])
-    ax.grid(axis='y', linestyle='--', alpha=0.7)
-
-    plt.tight_layout()
-    st.pyplot(fig)
-    
-    st.write("Shows the average bookmaker odds for each possible outcome, in matches that ended in a home win, draw, or away win.")
-    
-    st.write("""
-             
-             ### Odds vs Reality
-
-This again highlights a strange pattern in our dataset:  
-Even though home teams, on average, are more likely to win, this is not reflected in the odds data.
-
-The fact that bookmakers almost never favor the home team suggests there may be an underlying issue or bias in the dataset.
-
-It could also reflect how gamblers tend to bet, if the betting market disproportionately favors away teams or draws, bookmakers might adjust odds accordingly to balance their risk.  
-This market-driven skew could explain why the odds don't align with the actual win rates of home teams.
-
-Either way, this discrepancy may indicate noise or bias in the data that could affect model performance.
-
-             
-           """)
-    
-    
-    
-    def favored_outcome(row):
-        odds = {
-            'Home Win': row['avg_odd_home_win'],
-            'Draw': row['avg_odd_draw'],
-            'Away Win': row['avg_odd_away_win']
-    }
-        return min(odds, key=odds.get)
-
-    df['bookmaker_favored'] = df.apply(favored_outcome, axis=1)
-
-    favored_counts = df['bookmaker_favored'].value_counts(normalize=True) * 100
-    st.write("How often each outcome was favored by the odds (lowest odds):")
-    st.write(favored_counts.round(2))
-    
-    actual_outcomes = df[['home_outcome_W', 'home_outcome_D', 'home_outcome_L']].sum()
-    actual_outcomes.index = ['Home Win', 'Draw', 'Away Win']
-    actual_outcomes_percent = actual_outcomes / actual_outcomes.sum() * 100
-
-    st.write("\nActual outcome distribution:")
-    st.write(actual_outcomes_percent.round(2))
-    
-    df['ranking_diff'] = df['away_ranking'] - df['home_ranking']
-
-    avg_diff_when_away_favored = df[df['bookmaker_favored'] == 'Away Win']['ranking_diff'].mean()
-    st.write(f"\nAverage ranking_diff when Away Win is favored: {avg_diff_when_away_favored:.2f}")
-    
-    st.write("""
-             
-             Bookmakers systematically favor away teams
-Despite home teams winning more often, bookmakers set away win odds lower in 59% of all matches, while home teams are only favored in 2%.
-
-even though home teams wins 13.32% more often
-             
-             """)
     
 
     
