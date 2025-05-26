@@ -1,7 +1,11 @@
 import streamlit as st
-from Components.naive_bayes_page import show_nb_model_page
+st.set_page_config(page_title="Betting BI", page_icon="⚽", layout="wide")  # 🔺 Must be FIRST
 
-st.set_page_config(page_title="Betting BI", page_icon="⚽", layout="wide")
+from Components.naive_bayes_page import show_nb_model_page
+from Components.old_dataset import load_old_data
+from Components.cleaned_label_dataset import load_cleaned_label_data
+from Components.cleaned_onehot_dataset import load_cleaned_onehot_data
+from Components.eda import load_eda
 
 def show_homepage():
     st.title("BETTING DATA DASHBOARD")
@@ -29,12 +33,21 @@ def show_homepage():
     
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.selectbox("Choose a page", ["Homepage", "LoadNBModel"])
+    page = st.sidebar.selectbox("Choose a page", ["Homepage", "OldDataset","CleanLabelDataset", "CleanOneHotDataset", "LoadEDA", "LoadNBModel"])
 
     if page == "Homepage":
         show_homepage()
+    elif page == "OldDataset":
+        load_old_data()
+    elif page == "CleanLabelDataset":
+        load_cleaned_label_data()
+    elif page == "CleanOneHotDataset":
+        load_cleaned_onehot_data()
+    elif page == "LoadEDA":
+        load_eda()
     elif page == "LoadNBModel":
-        show_nb_model_page() 
+        show_nb_model_page()
+                       
 
 
 if __name__ == "__main__":

@@ -5,10 +5,10 @@ import numpy as np
 
 @st.cache_resource
 def load_model():
-    return joblib.load("../Models/naive-bayes-model.pkl")
+    return joblib.load("../Models/myrandomforest.pkl")
 
-def show_nb_model_page():
-    st.title("Naive Bayes Classifier")
+def show_rf_model_page():
+    st.title("Random Forest Classifier")
 
     model = load_model()
 
