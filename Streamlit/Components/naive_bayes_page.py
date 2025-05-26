@@ -14,7 +14,6 @@ def show_nb_model_page():
 
     st.write("Enter the relevant features to predict match outcome:")
 
-    # Replace these with your actual model features
     feature1 = st.number_input("avg_odd_home_win")
     feature2 = st.number_input("avg_odd_draw")
     feature3 = st.number_input("avg_odd_away_win")
