@@ -9,7 +9,6 @@ def load_more_diagrams():
     st.subheader("")
     
     st.image("../Pics/correlation-matrix.png", caption="", width=1200)
-    st.write("maybe remove the season so far")
     
     st.subheader("")
     

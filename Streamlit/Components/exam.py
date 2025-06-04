@@ -75,12 +75,16 @@ def load_exam():
     
     st.image("../Pics/correlation-between-odds-and-outcome.png", caption="", width=1000)
     
-    st.subheader("What could it be and what it means for our models")
-    st.write("1. ")
-    st.write("2. ")
-    st.write("3. ")
+    st.subheader("why could this be?")
+    st.write("1. human betting bias")
+    st.write("2. just faulty data")
+   
     
     st.subheader("")
+    
+    st.subheader("what does it mean for our models?")
+    st.write("one of the key features is misleading")
+
     
     
 
@@ -119,6 +123,12 @@ def load_exam():
     
     st.subheader("")
     
+    st.subheader("Feature Importances (Random Forest)")
+    st.image("../Pics/feature-importances-random-forest.png", caption="", width=900)
+    
+    
+    st.subheader("")
+    
     st.subheader("Analysis of random forest model")
     st.write("1. still biased towards home wins but less than logical regression")
     st.write("2. better at predicting draws")
@@ -127,15 +137,20 @@ def load_exam():
     st.subheader("")
 
     
-    #st.image("../Pics/feature-importances-random-forest.png", caption="", width=900)
-    #st.subheader("")
+    
     
     
     st.subheader("So can we predict the outcome of a match?")
-    st.write("1. ")
-    st.write("1. ")
+    st.write("Yes, but only to a limited degree.")
+    
+    st.subheader("")
     
     
+    
+    st.subheader("How to improve")
+    st.write("1. home odds being reliable")
+    st.write("2. dataset with more match-specific data")
+
     
     
     
