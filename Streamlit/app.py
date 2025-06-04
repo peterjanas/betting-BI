@@ -10,6 +10,7 @@ from Components.cleaned_label_dataset import load_cleaned_label_data
 from Components.cleaned_onehot_dataset import load_cleaned_onehot_data
 from Components.eda import load_eda
 from Components.exam import load_exam
+from Components.more_diagrams import load_more_diagrams
 
 
 def show_homepage():
@@ -39,7 +40,7 @@ def show_homepage():
 def main():
     st.sidebar.title("Navigation")
     
-    page = st.sidebar.selectbox("Choose a page", ["Homepage", "Original-Dataset","Label-Dataset", "One-Hot-Dataset", "EDA", "NB-Model","Random-Forest-Model","presentation"])
+    page = st.sidebar.selectbox("Choose a page", ["Homepage","presentation","more diagrams", "Original-Dataset","Label-Dataset", "One-Hot-Dataset", "EDA", "NB-Model","Random-Forest-Model"])
 
     if page == "Homepage":
         show_homepage()
@@ -57,6 +58,8 @@ def main():
         show_randomforest_model_page()
     elif page == "presentation":
         load_exam()
+    elif page == "more diagrams":
+        load_more_diagrams()
         
                        
 
